@@ -12,15 +12,15 @@ jasmine.DEFAULT_TIMEOUT_INTERVAL = 120000;
  * detox
  */
 if (process.argv[2].includes('__e2e__')) {
-	beforeAll(async () => {
-		await detox.init(config);
-	});
+  beforeAll(async () => {
+    await detox.init(config);
+  });
 
-	afterAll(async () => {
-		await detox.cleanup();
-	});
+  afterAll(async () => {
+    await detox.cleanup();
+  });
 
-	beforeEach(async () => {
+  beforeEach(async () => {
     await device.reloadReactNative();
   });
 }
