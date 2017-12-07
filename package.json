@@ -7,7 +7,7 @@
     "test:ios:release": "detox build -c ios.sim.release && detox test -c ios.sim.release",
     "test:ios:debug": "detox build -c ios.sim.debug && detox test -c ios.sim.debug",
     "test:unit": "jest . --config=./jest/config.json",
-    "test": "yarn test:unit && yarn test:e2e"
+    "test": "yarn test:unit && yarn test:ios:release"
   },
   "dependencies": {
     "react": "16.0.0",

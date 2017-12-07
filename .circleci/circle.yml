@@ -1,0 +1,19 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8
+    working_directory: ~/circleci-2-demo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - test-{{ .Branch }}-{{ checksum "package.json" }}
+            - test-{{ .Branch }}
+      - run: yarn
+      - save_cache:
+          key: test-{{ .Branch }}-{{ checksum "package.json" }}
+          paths:
+            - ~/.cache/yarn
+            - ~/circleci-2-demo/node_modules
+      - run: npm test
