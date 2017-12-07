@@ -4,22 +4,21 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test:e2e:ios:release": "detox test -c ios.sim.release",
-    "test:e2e:ios": "detox test -c ios.sim.debug",
-    "test:e2e": "npm run test:e2e:ios",
+    "test:ios:release": "detox build -c ios.sim.release && detox test -c ios.sim.release",
+    "test:ios:debug": "detox build -c ios.sim.debug && detox test -c ios.sim.debug",
     "test:unit": "jest .",
     "test": "yarn test:unit && yarn test:e2e"
   },
   "dependencies": {
     "react": "16.0.0",
-    "react-native": "0.51.0"
+    "react-native": "^0.51.0"
   },
   "devDependencies": {
     "babel-jest": "20.0.3",
     "babel-preset-react-native": "1.9.2",
     "detox": "^6.0.2",
     "jest": "20.0.4",
-    "react-test-renderer": "16.0.0-alpha.6"
+    "react-test-renderer": "16.0.0"
   },
   "jest": {
     "preset": "react-native",
@@ -34,13 +33,13 @@
         "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/detoxexample.app",
         "build": "xcodebuild -project ios/detoxexample.xcodeproj -scheme detoxexample -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
         "type": "ios.simulator",
-        "name": "iPhone 7"
+        "name": "iPhone 8"
       },
       "ios.sim.release": {
         "binaryPath": "ios/build/Build/Products/Release-iphonesimulator/detoxexample.app",
         "build": "xcodebuild -project ios/detoxexample.xcodeproj -scheme detoxexample -configuration Release -sdk iphonesimulator -derivedDataPath ios/build",
         "type": "ios.simulator",
-        "name": "iPhone 7"
+        "name": "iPhone 8"
       }
     }
   }
