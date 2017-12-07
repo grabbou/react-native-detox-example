@@ -6,7 +6,7 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test:ios:release": "detox build -c ios.sim.release && detox test -c ios.sim.release",
     "test:ios:debug": "detox build -c ios.sim.debug && detox test -c ios.sim.debug",
-    "test:unit": "jest .",
+    "test:unit": "jest . --config=./jest/config.json",
     "test": "yarn test:unit && yarn test:e2e"
   },
   "dependencies": {
@@ -19,10 +19,6 @@
     "detox": "^6.0.2",
     "jest": "20.0.4",
     "react-test-renderer": "16.0.0"
-  },
-  "jest": {
-    "preset": "react-native",
-    "testPathIgnorePatterns": ["__e2e__", "node_modules"]
   },
   "detox": {
     "test-runner": "jest",
